@@ -1,0 +1,16 @@
+#pragma once
+#include "Classes/LogicalBase/Local.h"
+
+//print
+#define WMC_BASE_BLOCK1											(WM_USER + 0)
+#define WMC_PRINT_PRINT											(WMC_BASE_BLOCK1 + 1)
+#define WMC_LOG_PRINT											(WMC_BASE_BLOCK1 + 2)
+
+//tips
+#define WMC_BASE_BLOCK2											(WM_USER + 100)
+#define WMC_TIPS_CLOSE_SERVICE									(WMC_BASE_BLOCK2 + 1)
+
+//service state
+#define WMC_BASE_BLOCK3											(WM_USER + 200)
+#define WMC_SSTATE_CHANGE_TO_STARTED							(WMC_BASE_BLOCK3 + 1)
+#define WMC_SSTATE_CHANGE_TO_STOPPED							(WMC_BASE_BLOCK3 + 2)

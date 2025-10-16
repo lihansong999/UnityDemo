@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug-ASAN|x64">
+      <Configuration>Debug-ASAN</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release-ASAN|x64">
+      <Configuration>Release-ASAN</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F0694422-6156-4488-A94D-13DBEFD1FCF6}</ProjectGuid>
+    <RootNamespace>LogicalServer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-ASAN|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <EnableASAN>true</EnableASAN>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-ASAN|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <EnableASAN>true</EnableASAN>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-ASAN|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-ASAN|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-ASAN|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-ASAN|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\libprotobuf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>xcopy "$(ProjectDir)LogicalConfig" "$(SolutionDir)$(Platform)\$(Configuration)\LogicalConfig\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\zlib\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\libcurl\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\openssl\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\wsserver\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\out_lib\Win64\d" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-ASAN|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\libprotobuf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>xcopy "$(ProjectDir)LogicalConfig" "$(SolutionDir)$(Platform)\$(Configuration)\LogicalConfig\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\zlib\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\libcurl\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\openssl\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\wsserver\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\out_lib\Win64\d_a" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\libprotobuf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>xcopy "$(ProjectDir)LogicalConfig" "$(SolutionDir)$(Platform)\$(Configuration)\LogicalConfig\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\zlib\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\libcurl\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\openssl\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\wsserver\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\out_lib\Win64\r" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-ASAN|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\libprotobuf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>xcopy "$(ProjectDir)LogicalConfig" "$(SolutionDir)$(Platform)\$(Configuration)\LogicalConfig\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\zlib\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\libcurl\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\openssl\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\ThirdParty\wsserver\lib\Win64" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D
+xcopy "$(ProjectDir)..\Framework\out_lib\Win64\r_a" "$(SolutionDir)$(Platform)\$(Configuration)\" /e /Y /D</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Classes\LogicalBase\Local.h" />
+    <ClInclude Include="Classes\LogicalBase\TypeDefine.h" />
+    <ClInclude Include="Classes\LogicalHandler\GameMap.h" />
+    <ClInclude Include="Classes\LogicalHandler\HandlerTypeDef.h" />
+    <ClInclude Include="Classes\LogicalHandler\QuickHandler.h" />
+    <ClInclude Include="Classes\LogicalMain.h" />
+    <ClInclude Include="Classes\LogicalNetwork\Message\Message.h" />
+    <ClInclude Include="Classes\LogicalNetwork\NetworkTools.h" />
+    <ClInclude Include="Classes\LogicalNetwork\TcpSvcManage.h" />
+    <ClInclude Include="Classes\LogicalNetwork\WsGoSvcManage.h" />
+    <ClInclude Include="LogicalServer.h" />
+    <ClInclude Include="LogicalServerDlg.h" />
+    <ClInclude Include="LogicalWndMessageCustom.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Classes\LogicalBase\Local.cpp" />
+    <ClCompile Include="Classes\LogicalBase\TypeDefine.cpp" />
+    <ClCompile Include="Classes\LogicalHandler\GameMap.cpp" />
+    <ClCompile Include="Classes\LogicalHandler\HandlerTypeDef.cpp" />
+    <ClCompile Include="Classes\LogicalHandler\QuickHandler.cpp" />
+    <ClCompile Include="Classes\LogicalMain.cpp" />
+    <ClCompile Include="Classes\LogicalNetwork\Message\Message.cpp" />
+    <ClCompile Include="Classes\LogicalNetwork\NetworkTools.cpp" />
+    <ClCompile Include="Classes\LogicalNetwork\TcpSvcManage.cpp" />
+    <ClCompile Include="Classes\LogicalNetwork\WsGoSvcManage.cpp" />
+    <ClCompile Include="LogicalServer.cpp" />
+    <ClCompile Include="LogicalServerDlg.cpp" />
+    <ClCompile Include="LogicalWndMessageCustom.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug-ASAN|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release-ASAN|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LogicalServer.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\LogicalServer.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\LogicalServer.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="LogicalServer.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

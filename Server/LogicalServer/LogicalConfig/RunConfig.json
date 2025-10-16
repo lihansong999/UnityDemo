@@ -1,0 +1,7 @@
+{
+	"LogicalID": 1,
+	"TcpPort": 15551,
+	"WsPort": 15552,
+	"TcpMaxClients": 600,
+	"WsMaxClients": 500
+}

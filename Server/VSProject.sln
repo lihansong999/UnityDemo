@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCCommon", "MFCCommon\MFCCommon.vcxproj", "{6B37DBC5-0BE6-4241-93D2-C7BD513111C8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LogicalServer", "LogicalServer\LogicalServer.vcxproj", "{F0694422-6156-4488-A94D-13DBEFD1FCF6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6B37DBC5-0BE6-4241-93D2-C7BD513111C8} = {6B37DBC5-0BE6-4241-93D2-C7BD513111C8}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug-ASAN|x64 = Debug-ASAN|x64
+		Release|x64 = Release|x64
+		Release-ASAN|x64 = Release-ASAN|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B37DBC5-0BE6-4241-93D2-C7BD513111C8}.Debug|x64.ActiveCfg = Debug|x64
+		{6B37DBC5-0BE6-4241-93D2-C7BD513111C8}.Debug|x64.Build.0 = Debug|x64
+		{6B37DBC5-0BE6-4241-93D2-C7BD513111C8}.Debug-ASAN|x64.ActiveCfg = Debug-ASAN|x64
+		{6B37DBC5-0BE6-4241-93D2-C7BD513111C8}.Debug-ASAN|x64.Build.0 = Debug-ASAN|x64
+		{6B37DBC5-0BE6-4241-93D2-C7BD513111C8}.Release|x64.ActiveCfg = Release|x64
+		{6B37DBC5-0BE6-4241-93D2-C7BD513111C8}.Release|x64.Build.0 = Release|x64
+		{6B37DBC5-0BE6-4241-93D2-C7BD513111C8}.Release-ASAN|x64.ActiveCfg = Release-ASAN|x64
+		{6B37DBC5-0BE6-4241-93D2-C7BD513111C8}.Release-ASAN|x64.Build.0 = Release-ASAN|x64
+		{F0694422-6156-4488-A94D-13DBEFD1FCF6}.Debug|x64.ActiveCfg = Debug|x64
+		{F0694422-6156-4488-A94D-13DBEFD1FCF6}.Debug|x64.Build.0 = Debug|x64
+		{F0694422-6156-4488-A94D-13DBEFD1FCF6}.Debug-ASAN|x64.ActiveCfg = Debug-ASAN|x64
+		{F0694422-6156-4488-A94D-13DBEFD1FCF6}.Debug-ASAN|x64.Build.0 = Debug-ASAN|x64
+		{F0694422-6156-4488-A94D-13DBEFD1FCF6}.Release|x64.ActiveCfg = Release|x64
+		{F0694422-6156-4488-A94D-13DBEFD1FCF6}.Release|x64.Build.0 = Release|x64
+		{F0694422-6156-4488-A94D-13DBEFD1FCF6}.Release-ASAN|x64.ActiveCfg = Release-ASAN|x64
+		{F0694422-6156-4488-A94D-13DBEFD1FCF6}.Release-ASAN|x64.Build.0 = Release-ASAN|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E69FA2B-E67F-438B-98AC-78256F8473F3}
+	EndGlobalSection
+EndGlobal
