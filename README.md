@@ -1,6 +1,6 @@
 ## 3D动作射击类网络游戏示例Demo
 
-[在线运行 Demo(全屏效果更佳)](http://testtemp1.qujkj.com)
+[在线运行 Demo(可开多个网页体验测试)](http://testtemp1.qujkj.com)
 
 ## 操作说明
 
